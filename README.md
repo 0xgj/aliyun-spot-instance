@@ -2,6 +2,13 @@
 
 The example launches ECS instance, disk, and attached the disk on ECS. the count parameter in variables.tf can let you create specify number ECS instances.
 
+### Export environment
+
+```sh
+export ALICLOUD_ACCESS_KEY=""
+export ALICLOUD_SECRET_KEY=""
+```
+
 ### Get up and running
 
 * Planning phase

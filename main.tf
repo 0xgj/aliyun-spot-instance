@@ -1,14 +1,12 @@
+provider "alicloud"{
+    region = "${var.region}"
+}
+
 data "alicloud_instance_types" "instance_type" {
   instance_type_family = "ecs.g5"
   cpu_core_count = "2"
   memory_size = "8"
 }
-
-#data "alicloud_instance_types" "instance_type" {
-#  instance_type_family = "ecs.g5"
-#  cpu_core_count = "4"
-#  memory_size = "16"
-#}
 
 resource "alicloud_security_group" "group" {
   name = "${var.short_name}"
@@ -35,13 +33,6 @@ resource "alicloud_security_group_rule" "allow_https_443" {
   cidr_ip = "0.0.0.0/0"
 }
 
-#resource "alicloud_disk" "disk" {
-#  availability_zone = "${alicloud_instance.instance.0.availability_zone}"
-#  category = "${var.disk_category}"
-#  size = "${var.disk_size}"
-#  count = "${var.count}"
-#}
-
 resource "alicloud_instance" "instance" {
   instance_name = "${var.short_name}-${var.role}-${format(var.count_format, count.index+1)}"
   host_name = "${var.short_name}-${var.role}-${format(var.count_format, count.index+1)}"
@@ -62,6 +53,6 @@ resource "alicloud_instance" "instance" {
 
   tags {
     role = "${var.role}"
-    dc = "${var.datacenter}"
+    dc = "${var.region}"
   }
 }

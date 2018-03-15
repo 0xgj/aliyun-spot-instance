@@ -4,6 +4,7 @@ variable "count" {
 variable "count_format" {
   default = "%02d"
 }
+
 variable "image_id" {
   default = "ubuntu_16_0402_64_20G_alibase_20171227.vhd"
 }
@@ -12,8 +13,8 @@ variable "role" {
   default = "work"
 }
 
-variable "datacenter" {
-  default = "beijing"
+variable "region" {
+  default = "cn-beijing"
 }
 
 variable "short_name" {
