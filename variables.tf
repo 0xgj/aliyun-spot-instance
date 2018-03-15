@@ -1,5 +1,5 @@
 variable "count" {
-  default = "1"
+  default = "2"
 }
 variable "count_format" {
   default = "%02d"

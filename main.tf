@@ -53,8 +53,8 @@ resource "alicloud_instance" "instance" {
   spot_strategy = "SpotWithPriceLimit"
   spot_price_limit = "1.0"
 
-  tags {
-    role = "${var.role}"
-    dc = "${var.region}"
-  }
+#  tags {
+#    role = "${var.role}"
+#    dc = "${var.region}"
+#  }
 }
