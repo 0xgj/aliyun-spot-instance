@@ -4,8 +4,8 @@ provider "alicloud"{
 
 data "alicloud_instance_types" "instance_type" {
   instance_type_family = "ecs.g5"
-  cpu_core_count = "2"
-  memory_size = "8"
+  cpu_core_count = "4"
+  memory_size = "16"
 }
 
 resource "alicloud_security_group" "group" {
@@ -43,6 +43,8 @@ resource "alicloud_instance" "instance" {
 
   internet_charge_type = "${var.internet_charge_type}"
   internet_max_bandwidth_out = "${var.internet_max_bandwidth_out}"
+
+  user_data = "#include\nhttps://raw.githubusercontent.com/caogj/aliyun-spot-instance/master/examples/provisioning.sh"
 
   password = "${var.ecs_password}"
 

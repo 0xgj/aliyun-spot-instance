@@ -14,7 +14,7 @@ variable "role" {
 }
 
 variable "region" {
-  default = "cn-beijing"
+  default = "cn-huhehaote"
 }
 
 variable "short_name" {
